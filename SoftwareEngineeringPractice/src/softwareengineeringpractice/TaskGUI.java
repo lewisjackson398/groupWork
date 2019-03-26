@@ -8,8 +8,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class TaskGUI extends JFrame
 {
-    //An array to hold all courses
-    String roles[];
     // All modules
     String jobs[][];
 	
