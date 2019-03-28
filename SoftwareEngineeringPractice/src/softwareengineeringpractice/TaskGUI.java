@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 public class TaskGUI extends JFrame
@@ -211,6 +213,30 @@ public class TaskGUI extends JFrame
 	btnDelete.setBounds(257, 276, 80, 23);
 	pnlBody.add(btnDelete);
 		
+        //Create a button that once clicked will print all of the assigned jobs to the console
+        //Will later be changed to add the assigned jobs to the database
+        JButton btnConfirm = new JButton("Confirm Jobs");
+        btnConfirm.addActionListener(new ActionListener()
+        {
+            //Data structure to store the assigned jobs
+            Vector data = new Vector();
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                //Get the data from the assigned jobs table and store them in data
+                data = mdlAssigned.getDataVector();
+                
+                //Loop through the data vector and print them to the console
+                for(int i = 0 ; i < data.size() ; i++)
+                {
+                    System.out.print(data.get(i) + "\n");
+                }
+            }
+        });
+        
+        btnConfirm.setBounds(257, 310, 80, 23);
+        pnlBody.add(btnConfirm);
+        
 	// Just for looks 
 	try 
         {
